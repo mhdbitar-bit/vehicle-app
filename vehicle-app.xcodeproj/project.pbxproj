@@ -17,6 +17,7 @@
 		4CDF61E4287F35B200669979 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61E3287F35B200669979 /* URLSessionHTTPClient.swift */; };
 		4CDF61E6287F369D00669979 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61E5287F369D00669979 /* HTTPClient.swift */; };
 		4CDF61E8287F373E00669979 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61E7287F373E00669979 /* Shared.swift */; };
+		4CDF61EB287F37ED00669979 /* RemoteLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61EA287F37ED00669979 /* RemoteLoaderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		4CDF61E3287F35B200669979 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		4CDF61E5287F369D00669979 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		4CDF61E7287F373E00669979 /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
+		4CDF61EA287F37ED00669979 /* RemoteLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				4CDF61DF287F2BFA00669979 /* Helpers */,
 				4CDF61DD287F2A2600669979 /* URLSessionHTTPClientTests.swift */,
+				4CDF61EA287F37ED00669979 /* RemoteLoaderTests.swift */,
 			);
 			path = "vehicle-appTests";
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CDF61EB287F37ED00669979 /* RemoteLoaderTests.swift in Sources */,
 				4CDF61E8287F373E00669979 /* Shared.swift in Sources */,
 				4CDF61DE287F2A2600669979 /* URLSessionHTTPClientTests.swift in Sources */,
 				4CDF61E1287F2C0300669979 /* URLProtocolStub.swift in Sources */,
