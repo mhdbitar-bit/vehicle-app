@@ -4,11 +4,13 @@ import XCTest
 class URLSessionHTTPClient {
     private let session: URLSession
     
+    typealias Result = Swift.Result<(Data, HTTPURLResponse), Error>
+    
     init(session: URLSession) {
         self.session = session
     }
     
-    func get(from url: URL, completion: @escaping (Result<(Data, HTTPURLResponse), Error>) -> Void) {
+    func get(from url: URL, completion: @escaping (Result) -> Void) {
         completion(.failure(NSError(domain: "any", code: 0)))
     }
 }
@@ -31,6 +33,31 @@ final class URLSessionHTTPClientTests: XCTestCase {
         sut.get(from: url) { _ in
             exp.fulfill()
         }
+        
+        wait(for: [exp], timeout: 1.0)
+        
+        URLProtocolStub.stopInterceptingRequests()
+    }
+    
+    func test_getFromURL_failsOnRequestError() {
+        URLProtocolStub.startInterceptingRequests()
+        
+        let url = URL(string: "http://any-url.com")!
+        let sut = URLSessionHTTPClient(session: .shared)
+        let requestError = NSError(domain: "any error", code: 0)
+        
+        let exp = expectation(description: "Wait for request")
+        
+        URLProtocolStub.stub(data: nil, response: nil, error: requestError)
+        
+        var receivedResult: URLSessionHTTPClient.Result!
+
+        sut.get(from: url) { result in
+            receivedResult = result
+            exp.fulfill()
+        }
+        
+        XCTAssertNotNil(receivedResult)
         
         wait(for: [exp], timeout: 1.0)
         
