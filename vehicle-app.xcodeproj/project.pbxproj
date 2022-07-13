@@ -124,10 +124,18 @@
 		4CDF61E2287F35AD00669979 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				4CDF61E3287F35B200669979 /* URLSessionHTTPClient.swift */,
+				4CDF61E9287F377600669979 /* Infrastructure */,
 				4CDF61E5287F369D00669979 /* HTTPClient.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		4CDF61E9287F377600669979 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				4CDF61E3287F35B200669979 /* URLSessionHTTPClient.swift */,
+			);
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
