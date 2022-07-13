@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class URLSessionHTTPClient {
+final class URLSessionHTTPClient: HTTPClient {
     private let session: URLSession
     
     typealias Result = Swift.Result<(Data, HTTPURLResponse), Error>

@@ -15,6 +15,7 @@
 		4CDF61DE287F2A2600669979 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61DD287F2A2600669979 /* URLSessionHTTPClientTests.swift */; };
 		4CDF61E1287F2C0300669979 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61E0287F2C0300669979 /* URLProtocolStub.swift */; };
 		4CDF61E4287F35B200669979 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61E3287F35B200669979 /* URLSessionHTTPClient.swift */; };
+		4CDF61E6287F369D00669979 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61E5287F369D00669979 /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		4CDF61DD287F2A2600669979 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		4CDF61E0287F2C0300669979 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 		4CDF61E3287F35B200669979 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		4CDF61E5287F369D00669979 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				4CDF61E3287F35B200669979 /* URLSessionHTTPClient.swift */,
+				4CDF61E5287F369D00669979 /* HTTPClient.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CDF61DC287F25DB00669979 /* Vehicle.swift in Sources */,
+				4CDF61E6287F369D00669979 /* HTTPClient.swift in Sources */,
 				4CDF61AB287F216E00669979 /* AppDelegate.swift in Sources */,
 				4CDF61AD287F216E00669979 /* SceneDelegate.swift in Sources */,
 				4CDF61E4287F35B200669979 /* URLSessionHTTPClient.swift in Sources */,
