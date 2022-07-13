@@ -11,7 +11,7 @@
 		4CDF61AD287F216E00669979 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61AC287F216E00669979 /* SceneDelegate.swift */; };
 		4CDF61B4287F217200669979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CDF61B3287F217200669979 /* Assets.xcassets */; };
 		4CDF61B7287F217200669979 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CDF61B5287F217200669979 /* LaunchScreen.storyboard */; };
-		4CDF61DC287F25DB00669979 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61DB287F25DB00669979 /* Vehicle.swift */; };
+		4CDF61DC287F25DB00669979 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61DB287F25DB00669979 /* Point.swift */; };
 		4CDF61DE287F2A2600669979 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61DD287F2A2600669979 /* URLSessionHTTPClientTests.swift */; };
 		4CDF61E1287F2C0300669979 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61E0287F2C0300669979 /* URLProtocolStub.swift */; };
 		4CDF61E4287F35B200669979 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61E3287F35B200669979 /* URLSessionHTTPClient.swift */; };
@@ -38,7 +38,7 @@
 		4CDF61B6287F217200669979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CDF61B8287F217200669979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CDF61BD287F217200669979 /* vehicle-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "vehicle-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CDF61DB287F25DB00669979 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		4CDF61DB287F25DB00669979 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		4CDF61DD287F2A2600669979 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		4CDF61E0287F2C0300669979 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 		4CDF61E3287F35B200669979 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 				4CDF61B3287F217200669979 /* Assets.xcassets */,
 				4CDF61B5287F217200669979 /* LaunchScreen.storyboard */,
 				4CDF61B8287F217200669979 /* Info.plist */,
-				4CDF61DB287F25DB00669979 /* Vehicle.swift */,
+				4CDF61DB287F25DB00669979 /* Point.swift */,
 			);
 			path = "vehicle-app";
 			sourceTree = "<group>";
@@ -242,7 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CDF61DC287F25DB00669979 /* Vehicle.swift in Sources */,
+				4CDF61DC287F25DB00669979 /* Point.swift in Sources */,
 				4CDF61E6287F369D00669979 /* HTTPClient.swift in Sources */,
 				4CDF61AB287F216E00669979 /* AppDelegate.swift in Sources */,
 				4CDF61AD287F216E00669979 /* SceneDelegate.swift in Sources */,
