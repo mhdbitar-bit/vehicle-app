@@ -12,6 +12,8 @@
 		4CDF61B4287F217200669979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CDF61B3287F217200669979 /* Assets.xcassets */; };
 		4CDF61B7287F217200669979 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CDF61B5287F217200669979 /* LaunchScreen.storyboard */; };
 		4CDF61DC287F25DB00669979 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61DB287F25DB00669979 /* Vehicle.swift */; };
+		4CDF61DE287F2A2600669979 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61DD287F2A2600669979 /* URLSessionHTTPClientTests.swift */; };
+		4CDF61E1287F2C0300669979 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61E0287F2C0300669979 /* URLProtocolStub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,8 @@
 		4CDF61B8287F217200669979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CDF61BD287F217200669979 /* vehicle-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "vehicle-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CDF61DB287F25DB00669979 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		4CDF61DD287F2A2600669979 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
+		4CDF61E0287F2C0300669979 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 		4CDF61C0287F217200669979 /* vehicle-appTests */ = {
 			isa = PBXGroup;
 			children = (
+				4CDF61DF287F2BFA00669979 /* Helpers */,
+				4CDF61DD287F2A2600669979 /* URLSessionHTTPClientTests.swift */,
 			);
 			path = "vehicle-appTests";
 			sourceTree = "<group>";
@@ -97,6 +103,14 @@
 				4CDF61AC287F216E00669979 /* SceneDelegate.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		4CDF61DF287F2BFA00669979 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4CDF61E0287F2C0300669979 /* URLProtocolStub.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +166,7 @@
 					};
 					4CDF61BC287F217200669979 = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 						TestTargetID = 4CDF61A6287F216E00669979;
 					};
 				};
@@ -209,6 +224,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CDF61DE287F2A2600669979 /* URLSessionHTTPClientTests.swift in Sources */,
+				4CDF61E1287F2C0300669979 /* URLProtocolStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,15 +424,22 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QU3CT6V6H6;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bitar.vehicle-appTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vehicle-app.app/vehicle-app";
@@ -427,11 +451,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QU3CT6V6H6;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bitar.vehicle-appTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
