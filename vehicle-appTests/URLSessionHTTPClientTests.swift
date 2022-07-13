@@ -6,12 +6,22 @@ class URLSessionHTTPClient {
     
     typealias Result = Swift.Result<(Data, HTTPURLResponse), Error>
     
+    private struct UnexpectedValuesRepresentation: Error {}
+
     init(session: URLSession = .shared) {
         self.session = session
     }
     
     func get(from url: URL, completion: @escaping (Result) -> Void) {
-        completion(.failure(NSError(domain: "any", code: 0)))
+        session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+            } else if let data = data, let response = response as? HTTPURLResponse {
+                completion(.success((data, response)))
+            } else {
+                completion(.failure(UnexpectedValuesRepresentation()))
+            }
+        }.resume()
     }
 }
 
@@ -63,6 +73,16 @@ final class URLSessionHTTPClientTests: XCTestCase {
         XCTAssertNotNil(resultErrorFor(data: anyData(), response: nonHTTPURLResponse(), error: nil))
     }
     
+    func test_getFromURL_succeedsWithEmptyDataOnHTTPURLResponseWithNilData() {
+        let response = anyHTTPURLResponse()
+        let receivedValues = resultValuesFor(data: nil, response: response, error: nil)
+        let emptyData = Data()
+        
+        XCTAssertEqual(receivedValues?.data, emptyData)
+        XCTAssertEqual(receivedValues?.response.url, response.url)
+        XCTAssertEqual(receivedValues?.response.statusCode, response.statusCode)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> URLSessionHTTPClient {
@@ -78,6 +98,20 @@ final class URLSessionHTTPClientTests: XCTestCase {
             
         default:
             XCTFail("Expected failure with error, got \(result) instead", file: file, line: line)
+            return .none
+        }
+    }
+    
+    private func resultValuesFor(data: Data?, response: URLResponse?, error: Error?, file: StaticString = #filePath, line: UInt = #line) -> (data: Data, response: HTTPURLResponse)? {
+        
+        let result = resultFor(data: data, response: response, error: error, file: file, line: line)
+
+        switch result {
+        case let .success((data, response)):
+            return (data, response)
+        
+        default:
+            XCTFail("Expected success with error, got \(result) instead", file: file, line: line)
             return .none
         }
     }
