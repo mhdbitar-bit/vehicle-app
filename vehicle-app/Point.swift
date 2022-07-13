@@ -1,5 +1,5 @@
 //
-//  Vehicle.swift
+//  Point.swift
 //  vehicle-app
 //
 //  Created by Mohammad Bitar on 7/13/22.
@@ -12,7 +12,7 @@ enum State: String {
     case inactive = "INACTIVE"
 }
 
-struct Vehicle {
+struct Point {
     let id: Int
     let coordinate: Coordinate
     let state: State
