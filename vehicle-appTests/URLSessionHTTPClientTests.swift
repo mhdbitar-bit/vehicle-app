@@ -1,30 +1,6 @@
 @testable import vehicle_app
 import XCTest
 
-class URLSessionHTTPClient {
-    private let session: URLSession
-    
-    typealias Result = Swift.Result<(Data, HTTPURLResponse), Error>
-    
-    private struct UnexpectedValuesRepresentation: Error {}
-
-    init(session: URLSession = .shared) {
-        self.session = session
-    }
-    
-    func get(from url: URL, completion: @escaping (Result) -> Void) {
-        session.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            } else if let data = data, let response = response as? HTTPURLResponse {
-                completion(.success((data, response)))
-            } else {
-                completion(.failure(UnexpectedValuesRepresentation()))
-            }
-        }.resume()
-    }
-}
-
 final class URLSessionHTTPClientTests: XCTestCase {
     
     override func setUp() {
@@ -91,7 +67,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
 
         XCTAssertEqual(receivedValues?.data, data)
         XCTAssertEqual(receivedValues?.response.url, response.url)
-        XCTAssertEqual(receivedValues?.response.statusCode, response.statusCode)        
+        XCTAssertEqual(receivedValues?.response.statusCode, response.statusCode)
     }
     
     // MARK: - Helpers
