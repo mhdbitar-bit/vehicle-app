@@ -32,6 +32,18 @@ final class PointMapper {
             }
         }
     }
+    
+    private enum Error: Swift.Error {
+        case invalidData
+    }
+    
+    static func map(_ data: Data, from response: HTTPURLResponse) throws -> [Point] {
+        guard response.statusCode == 200, let list = try? JSONDecoder().decode(List.self, from: data) else {
+            throw Error.invalidData
+        }
+        
+        return list.points
+    }
 }
 
 final class RemoteLoader {
@@ -52,8 +64,12 @@ final class RemoteLoader {
     func load(completion: @escaping (Result<[Point], Error>) -> Void) {
         client.get(from: url) { result in
             switch result {
-            case .success:
-                completion(.failure(.invalidData))
+            case let (.success((data, response))):
+                if let points = try? PointMapper.map(data, from: response) {
+                    completion(.success(points))
+                } else {
+                    completion(.failure(.invalidData))
+                }
             case .failure:
                 completion(.failure(.connecitivy))
             }
@@ -102,7 +118,7 @@ final class RemoteLoaderTests: XCTestCase {
         
         samples.enumerated().forEach { index, code in
             expect(sut, toCompleteWith: .failure(.invalidData)) {
-                let json = makeItemsJSON([])
+                let json = makeJson([])
                 client.complete(withStatusCode: code, data: json, at: index)
             }
         }
@@ -115,6 +131,15 @@ final class RemoteLoaderTests: XCTestCase {
             let json = Data("invalid json".utf8)
             client.complete(withStatusCode: 200, data: json)
         }
+    }
+    
+    func test_load_deliversSuccessWithNoItemsOn200HTTPResponseWithEmptyJSONList() {
+        let (sut, client) = makeSUT()
+
+        expect(sut, toCompleteWith: .success([]), when: {
+            let emptyListJSON = makeJson([])
+            client.complete(withStatusCode: 200, data: emptyListJSON)
+        })
     }
     
     // MARK: - Helpers
@@ -131,10 +156,14 @@ final class RemoteLoaderTests: XCTestCase {
         
         sut.load { receivedResult in
             switch (receivedResult, expectedResult) {
+            case let (.success(receivedItems), .success(expectedItems)):
+                XCTAssertEqual(receivedItems, expectedItems, file: file, line: line)
+                
             case let (.failure(receivedError), .failure(expectedError)):
                 XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+            
             default:
-                XCTFail("Expected failure got \(receivedResult) instead")
+                XCTFail("Expected result \(expectedResult) got \(receivedResult) instead", file: file, line: line)
             }
             
             exp.fulfill()
@@ -171,7 +200,8 @@ final class RemoteLoaderTests: XCTestCase {
         }
     }
     
-    private func makeItemsJSON(_ items: [[String: Any]]) -> Data {
-        return try! JSONSerialization.data(withJSONObject: items)
+    func makeJson(_ points: [[String: Any]]) -> Data {
+        let json = ["poiList": points]
+        return try! JSONSerialization.data(withJSONObject: json)
     }
 }
