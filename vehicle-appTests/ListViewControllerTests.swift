@@ -34,6 +34,24 @@ final class ListViewControllerTests: XCTestCase {
                 XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once user initiated loading completes with error")
     }
     
+    func test_loadItemsCompletion_rendersSuccessfullyloadedItems() {
+        let point1 = makePoint(id: 10, latitude: 3.552315291358475, longitude: 10.011982172727585, state: .inactive, type: "TAXI", heading: 500)
+        
+        let point2 = makePoint(id: 100, latitude: 53.544433455545985, longitude: 9.98176272958517, state: .inactive, type: "TAXI", heading: 300)
+        
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        assertThat(sut, isRendering: [])
+        
+        loader.completeVehicleLoading(with: [point1.model], at: 0)
+        assertThat(sut, isRendering: [point1.model])
+        
+        sut.simulateUserInitiatedResourceReload()
+        loader.completeVehicleLoading(with: [point1.model, point2.model], at: 1)
+        assertThat(sut, isRendering: [point1.model, point2.model])
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: ListViewController, loader: LoaderSpy) {
@@ -43,6 +61,34 @@ final class ListViewControllerTests: XCTestCase {
         trackForMemoryLeacks(loader, file: file, line: line)
         trackForMemoryLeacks(sut, file: file, line: line)
         return (sut, loader)
+    }
+    
+    private func assertThat(_ sut: ListViewController, isRendering points: [Point], file: StaticString = #filePath, line: UInt = #line) {
+        guard sut.numberOfRenderedResourceViews() == points.count else {
+            return XCTFail("Expected \(points.count) items, got \(sut.numberOfRenderedResourceViews()) instead", file: file, line: line)
+        }
+        
+        points.enumerated().forEach { index, item in
+            assertThat(sut, hasViewConfiguredFor: item, at: index, file: file, line: line)
+        }
+    }
+    
+    private func assertThat(_ sut: ListViewController, hasViewConfiguredFor point: Point, at index: Int, file: StaticString = #filePath, line: UInt = #line) {
+        let view = sut.view(at: index) as? VehicleTableViewCell
+        
+        guard let cell = view else {
+            return XCTFail("Expected \(UITableViewCell.self) instance, got \(String(describing: view)) instead", file: file, line: line)
+        }
+        
+        XCTAssertEqual(cell.vehicleTypeLabel.text, point.type, "Expected title to be \(String(describing: point.type)) for vehicle view at index \(index)", file: file, line: line)
+        
+        XCTAssertEqual(cell.latitudeLabel.text, "\(point.coordinate.latitude)", "Expected latitude to be \(String(describing: point.coordinate.latitude)) for vehicle latitude view at index \(index)", file: file, line: line)
+        
+        XCTAssertEqual(cell.longitudeLabel.text, "\(point.coordinate.longitude)", "Expected longitude to be \(String(describing: point.coordinate.longitude)) for vehicle longitude view at index \(index)", file: file, line: line)
+        
+        let distance = CoreLocationHelpers.calculateDistanceBetween(Coordinate(latitude: 53.694865, longitude: 9.757589), point.coordinate)
+        
+        XCTAssertEqual(cell.distanceLabel.text, distance, "Expected distance to be \(distance) for vehicle distance view at index \(index)", file: file, line: line)
     }
     
     private class LoaderSpy: VehicleLoader {
@@ -77,6 +123,20 @@ private extension UITableViewController {
     
     var isShowingLoadingIndicator: Bool {
         return refreshControl?.isRefreshing == true
+    }
+    
+    func numberOfRenderedResourceViews() -> Int {
+        return tableView.numberOfRows(inSection: resourceSection)
+    }
+    
+    private var resourceSection: Int {
+        return 0
+    }
+    
+    func view(at row: Int) -> UITableViewCell? {
+        let ds = tableView.dataSource
+        let index = IndexPath(row: row, section: resourceSection)
+        return ds?.tableView(tableView, cellForRowAt: index)
     }
 }
 
