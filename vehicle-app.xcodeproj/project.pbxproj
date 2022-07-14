@@ -22,6 +22,11 @@
 		4CDF61EF287FEB2800669979 /* PointMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61EE287FEB2800669979 /* PointMapper.swift */; };
 		4CDF61F1287FEC8B00669979 /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61F0287FEC8B00669979 /* XCTestCase+MemoryLeackTrackingHelper.swift */; };
 		4CDF61F4287FED6700669979 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61F3287FED6700669979 /* Coordinate.swift */; };
+		4CDF61F7287FF05600669979 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61F6287FF05600669979 /* ListViewController.swift */; };
+		4CDF61FB287FF0E100669979 /* PointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61F9287FF0E100669979 /* PointTableViewCell.swift */; };
+		4CDF61FC287FF0E100669979 /* PointTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CDF61FA287FF0E100669979 /* PointTableViewCell.xib */; };
+		4CDF61FF287FFE3E00669979 /* CoreLocationHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61FE287FFE3E00669979 /* CoreLocationHelpers.swift */; };
+		4CDF62022880047800669979 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF62012880047800669979 /* ListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,11 @@
 		4CDF61EE287FEB2800669979 /* PointMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointMapper.swift; sourceTree = "<group>"; };
 		4CDF61F0287FEC8B00669979 /* XCTestCase+MemoryLeackTrackingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeackTrackingHelper.swift"; sourceTree = "<group>"; };
 		4CDF61F3287FED6700669979 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		4CDF61F6287FF05600669979 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		4CDF61F9287FF0E100669979 /* PointTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTableViewCell.swift; sourceTree = "<group>"; };
+		4CDF61FA287FF0E100669979 /* PointTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointTableViewCell.xib; sourceTree = "<group>"; };
+		4CDF61FE287FFE3E00669979 /* CoreLocationHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationHelpers.swift; sourceTree = "<group>"; };
+		4CDF62012880047800669979 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +106,7 @@
 			children = (
 				4CDF61E2287F35AD00669979 /* API */,
 				4CDF61F2287FED3900669979 /* Domain */,
+				4CDF61F5287FED9100669979 /* Presentation */,
 				4CDF61DA287F221A00669979 /* Main */,
 				4CDF61B3287F217200669979 /* Assets.xcassets */,
 				4CDF61B5287F217200669979 /* LaunchScreen.storyboard */,
@@ -159,6 +170,42 @@
 				4CDF61F3287FED6700669979 /* Coordinate.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		4CDF61F5287FED9100669979 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4CDF62002880046F00669979 /* ViewModel */,
+				4CDF61FD287FFE2F00669979 /* Helpers */,
+				4CDF61F8287FF07600669979 /* Views */,
+				4CDF61F6287FF05600669979 /* ListViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		4CDF61F8287FF07600669979 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4CDF61F9287FF0E100669979 /* PointTableViewCell.swift */,
+				4CDF61FA287FF0E100669979 /* PointTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4CDF61FD287FFE2F00669979 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4CDF61FE287FFE3E00669979 /* CoreLocationHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4CDF62002880046F00669979 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4CDF62012880047800669979 /* ListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CDF61FC287FF0E100669979 /* PointTableViewCell.xib in Resources */,
 				4CDF61B7287F217200669979 /* LaunchScreen.storyboard in Resources */,
 				4CDF61B4287F217200669979 /* Assets.xcassets in Resources */,
 			);
@@ -264,11 +312,15 @@
 			files = (
 				4CDF61DC287F25DB00669979 /* Point.swift in Sources */,
 				4CDF61E6287F369D00669979 /* HTTPClient.swift in Sources */,
+				4CDF62022880047800669979 /* ListViewModel.swift in Sources */,
+				4CDF61FF287FFE3E00669979 /* CoreLocationHelpers.swift in Sources */,
 				4CDF61AB287F216E00669979 /* AppDelegate.swift in Sources */,
 				4CDF61F4287FED6700669979 /* Coordinate.swift in Sources */,
 				4CDF61AD287F216E00669979 /* SceneDelegate.swift in Sources */,
+				4CDF61F7287FF05600669979 /* ListViewController.swift in Sources */,
 				4CDF61ED287FEAEA00669979 /* RemoteLoader.swift in Sources */,
 				4CDF61EF287FEB2800669979 /* PointMapper.swift in Sources */,
+				4CDF61FB287FF0E100669979 /* PointTableViewCell.swift in Sources */,
 				4CDF61E4287F35B200669979 /* URLSessionHTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
