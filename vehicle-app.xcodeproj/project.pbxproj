@@ -20,6 +20,7 @@
 		4CDF61EB287F37ED00669979 /* RemoteLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61EA287F37ED00669979 /* RemoteLoaderTests.swift */; };
 		4CDF61ED287FEAEA00669979 /* RemoteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61EC287FEAEA00669979 /* RemoteLoader.swift */; };
 		4CDF61EF287FEB2800669979 /* PointMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61EE287FEB2800669979 /* PointMapper.swift */; };
+		4CDF61F1287FEC8B00669979 /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61F0287FEC8B00669979 /* XCTestCase+MemoryLeackTrackingHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		4CDF61EA287F37ED00669979 /* RemoteLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoaderTests.swift; sourceTree = "<group>"; };
 		4CDF61EC287FEAEA00669979 /* RemoteLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoader.swift; sourceTree = "<group>"; };
 		4CDF61EE287FEB2800669979 /* PointMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointMapper.swift; sourceTree = "<group>"; };
+		4CDF61F0287FEC8B00669979 /* XCTestCase+MemoryLeackTrackingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeackTrackingHelper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			children = (
 				4CDF61E0287F2C0300669979 /* URLProtocolStub.swift */,
 				4CDF61E7287F373E00669979 /* Shared.swift */,
+				4CDF61F0287FEC8B00669979 /* XCTestCase+MemoryLeackTrackingHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CDF61EB287F37ED00669979 /* RemoteLoaderTests.swift in Sources */,
+				4CDF61F1287FEC8B00669979 /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */,
 				4CDF61E8287F373E00669979 /* Shared.swift in Sources */,
 				4CDF61DE287F2A2600669979 /* URLSessionHTTPClientTests.swift in Sources */,
 				4CDF61E1287F2C0300669979 /* URLProtocolStub.swift in Sources */,
