@@ -7,36 +7,34 @@
 
 import Foundation
 
-final class RemoteLoader {
+final class RemoteLoader: VehicleLoader {
     private let url: URL
     private let client: HTTPClient
     
-    typealias Result = Swift.Result<[Point], Error>
-
     enum Error: Swift.Error {
         case connecitivy
         case invalidData
     }
-
     
     init(url: URL, client: HTTPClient) {
         self.url = url
         self.client = client
     }
     
-    func load(completion: @escaping (Result) -> Void) {
+    func load(completion: @escaping (VehicleLoader.Result) -> Void) {
         client.get(from: url) { [weak self] result in
             guard let self = self else { return }
-            
+
             switch result {
             case let (.success((data, response))):
                 completion(self.map(data, from: response))
             case .failure:
-                completion(.failure(.connecitivy))
+                completion(.failure(Error.connecitivy))
             }
         }
     }
-    private func map(_ data: Data, from response: HTTPURLResponse) -> Result {
+    
+    private func map(_ data: Data, from response: HTTPURLResponse) -> VehicleLoader.Result {
         do {
             return .success(try PointMapper.map(data, from: response))
         } catch {

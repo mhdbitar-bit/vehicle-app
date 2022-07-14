@@ -29,6 +29,7 @@
 		4CDF62052880063100669979 /* VehicleCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF62042880063100669979 /* VehicleCellController.swift */; };
 		4CDF6207288008FC00669979 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF6206288008FC00669979 /* ListViewController.swift */; };
 		4CDF620928800A8200669979 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF620828800A8200669979 /* Alertable.swift */; };
+		4CDF620B28800ADB00669979 /* VehicleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF620A28800ADB00669979 /* VehicleLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		4CDF62042880063100669979 /* VehicleCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCellController.swift; sourceTree = "<group>"; };
 		4CDF6206288008FC00669979 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		4CDF620828800A8200669979 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		4CDF620A28800ADB00669979 /* VehicleLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				4CDF61E9287F377600669979 /* Infrastructure */,
 				4CDF61E5287F369D00669979 /* HTTPClient.swift */,
 				4CDF61EC287FEAEA00669979 /* RemoteLoader.swift */,
+				4CDF620A28800ADB00669979 /* VehicleLoader.swift */,
 				4CDF61EE287FEB2800669979 /* PointMapper.swift */,
 			);
 			path = API;
@@ -333,6 +336,7 @@
 				4CDF61F4287FED6700669979 /* Coordinate.swift in Sources */,
 				4CDF61AD287F216E00669979 /* SceneDelegate.swift in Sources */,
 				4CDF620928800A8200669979 /* Alertable.swift in Sources */,
+				4CDF620B28800ADB00669979 /* VehicleLoader.swift in Sources */,
 				4CDF61ED287FEAEA00669979 /* RemoteLoader.swift in Sources */,
 				4CDF61EF287FEB2800669979 /* PointMapper.swift in Sources */,
 				4CDF61FB287FF0E100669979 /* VehicleTableViewCell.swift in Sources */,
