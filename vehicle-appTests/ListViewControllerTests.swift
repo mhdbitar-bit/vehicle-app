@@ -52,6 +52,21 @@ final class ListViewControllerTests: XCTestCase {
         assertThat(sut, isRendering: [point1.model, point2.model])
     }
     
+    func test_loadItemsCompletion_doesNotAlertCurrentRenderingStateOnError() {
+        let point1 = makePoint(id: 10, latitude: 3.552315291358475, longitude: 10.011982172727585, state: .inactive, type: "TAXI", heading: 500)
+        
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        
+        loader.completeVehicleLoading(with: [point1.model], at: 0)
+        assertThat(sut, isRendering: [point1.model])
+        
+        sut.simulateUserInitiatedResourceReload()
+        loader.completeVehicleWithError(at: 1)
+        assertThat(sut, isRendering: [point1.model])
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: ListViewController, loader: LoaderSpy) {
