@@ -142,6 +142,19 @@ final class RemoteLoaderTests: XCTestCase {
         })
     }
     
+    func test_load_deliversSuccessWithItemsOn200HTTPResponseWithJSONItems() {
+        let (sut, client) = makeSUT()
+
+        let point1 = makePoint(id: 832260383, latitude: 53.55267999516122, longitude: 10.008259937167168, state: .active, type: "TAXI", heading: 60.80968848176092)
+        
+        let point2 = makePoint(id: -1355393842, latitude: 53.55843397171428, longitude: 10.0072480738163, state: .active, type: "TAXI", heading: 56.70343780517578)
+        
+        expect(sut, toCompleteWith: .success([point1.model, point2.model])) {
+            let json = makeJson([point1.json, point2.json])
+            client.complete(withStatusCode: 200, data: json)
+        }
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(url: URL = anyURL(), file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteLoader, client: HTTPClientSpy) {
@@ -172,6 +185,24 @@ final class RemoteLoaderTests: XCTestCase {
         action()
         
         waitForExpectations(timeout: 0.1)
+    }
+    
+    private func makePoint(id: Int, latitude: Float, longitude: Float, state: State, type: String, heading: Float) -> (model: Point, json: [String: Any]) {
+        
+        let point = Point(id: id, coordinate: Coordinate(latitude: latitude, longitude: longitude), state: state, type: type, heading: heading)
+        
+        let json = [
+            "id": id,
+            "coordinate": [
+                "latitude": latitude,
+                "longitude": longitude
+            ],
+            "state": state == .active ? "ACTIVE": "INACTIVE",
+            "type": type,
+            "heading": heading
+        ] as [String: Any]
+        
+        return (point, json)
     }
     
     class HTTPClientSpy: HTTPClient {
