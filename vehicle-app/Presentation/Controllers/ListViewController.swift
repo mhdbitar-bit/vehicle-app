@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-final class ListViewController: UITableViewController {
+final class ListViewController: UITableViewController, Alertable {
     private var viewModel: ListViewModel!
     private var borderCoorindate: Coordinate!
     private var cancellables: Set<AnyCancellable> = []
@@ -69,6 +69,12 @@ final class ListViewController: UITableViewController {
     }
     
     private func bindError() {
+        viewModel.$error.sink { [weak self] error in
+            guard let self = self else { return }
+            if let error = error {
+                self.showAlert(message: error)
+            }
+        }.store(in: &cancellables)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
