@@ -14,9 +14,9 @@ final class ListViewModel {
     @Published var isLoading: Bool = false
     @Published var error: String? = nil
     
-    let loader: RemoteLoader
+    let loader: VehicleLoader
     
-    init(loader: RemoteLoader) {
+    init(loader: VehicleLoader) {
         self.loader = loader
     }
     
