@@ -93,11 +93,11 @@
 			isa = PBXGroup;
 			children = (
 				4CDF61E2287F35AD00669979 /* API */,
+				4CDF61F2287FED3900669979 /* Domain */,
 				4CDF61DA287F221A00669979 /* Main */,
 				4CDF61B3287F217200669979 /* Assets.xcassets */,
 				4CDF61B5287F217200669979 /* LaunchScreen.storyboard */,
 				4CDF61B8287F217200669979 /* Info.plist */,
-				4CDF61DB287F25DB00669979 /* Point.swift */,
 			);
 			path = "vehicle-app";
 			sourceTree = "<group>";
@@ -148,6 +148,14 @@
 				4CDF61E3287F35B200669979 /* URLSessionHTTPClient.swift */,
 			);
 			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		4CDF61F2287FED3900669979 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				4CDF61DB287F25DB00669979 /* Point.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
