@@ -27,6 +27,7 @@
 		4CDF61FF287FFE3E00669979 /* CoreLocationHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61FE287FFE3E00669979 /* CoreLocationHelpers.swift */; };
 		4CDF62022880047800669979 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF62012880047800669979 /* ListViewModel.swift */; };
 		4CDF62052880063100669979 /* VehicleCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF62042880063100669979 /* VehicleCellController.swift */; };
+		4CDF6207288008FC00669979 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF6206288008FC00669979 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		4CDF61FE287FFE3E00669979 /* CoreLocationHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationHelpers.swift; sourceTree = "<group>"; };
 		4CDF62012880047800669979 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		4CDF62042880063100669979 /* VehicleCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCellController.swift; sourceTree = "<group>"; };
+		4CDF6206288008FC00669979 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				4CDF62042880063100669979 /* VehicleCellController.swift */,
+				4CDF6206288008FC00669979 /* ListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				4CDF61ED287FEAEA00669979 /* RemoteLoader.swift in Sources */,
 				4CDF61EF287FEB2800669979 /* PointMapper.swift in Sources */,
 				4CDF61FB287FF0E100669979 /* VehicleTableViewCell.swift in Sources */,
+				4CDF6207288008FC00669979 /* ListViewController.swift in Sources */,
 				4CDF61E4287F35B200669979 /* URLSessionHTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
