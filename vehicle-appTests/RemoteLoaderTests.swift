@@ -2,7 +2,7 @@
 import XCTest
 
 final class PointMapper {
-    private struct list: Decodable {
+    private struct List: Decodable {
         private let poiList: [RemotePoint]
     
         private struct RemotePoint: Decodable {
