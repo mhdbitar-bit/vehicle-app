@@ -7,17 +7,12 @@
 
 import UIKit
 
-class PointTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+final class PointTableViewCell: UITableViewCell {
+    @IBOutlet private(set) var vehicleImage: UIImageView!
+    @IBOutlet private(set) var vehicleTypeLabel: UILabel!
+    @IBOutlet private(set) var latitudeLabel: UILabel!
+    @IBOutlet private(set) var longitudeLabel: UILabel!
+    @IBOutlet private(set) var distanceLabel: UILabel!
     
+    static let ID = "PointTableViewCell"
 }
