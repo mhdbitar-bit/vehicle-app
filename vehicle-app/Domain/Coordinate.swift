@@ -8,6 +8,6 @@
 import Foundation
 
 struct Coordinate: Equatable {
-    let latitude: Float
-    let longitude: Float
+    let latitude: Double
+    let longitude: Double
 }

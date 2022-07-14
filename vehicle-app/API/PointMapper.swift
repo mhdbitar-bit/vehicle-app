@@ -16,11 +16,11 @@ final class PointMapper {
             let coordinate: RemoteCoordinate
             let state: String
             let type: String
-            let heading: Float
+            let heading: Double
         
             struct RemoteCoordinate: Decodable {
-                let latitude: Float
-                let longitude: Float
+                let latitude: Double
+                let longitude: Double
             }
         }
         

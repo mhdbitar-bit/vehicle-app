@@ -17,5 +17,5 @@ struct Point: Equatable {
     let coordinate: Coordinate
     let state: State
     let type: String
-    let heading: Float
+    let heading: Double
 }
