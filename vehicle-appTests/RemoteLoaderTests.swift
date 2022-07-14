@@ -113,7 +113,7 @@ final class RemoteLoaderTests: XCTestCase {
         waitForExpectations(timeout: 0.1)
     }
     
-    private func makePoint(id: Int, latitude: Float, longitude: Float, state: State, type: String, heading: Float) -> (model: Point, json: [String: Any]) {
+    private func makePoint(id: Int, latitude: Double, longitude: Double, state: State, type: String, heading: Double) -> (model: Point, json: [String: Any]) {
         
         let point = Point(id: id, coordinate: Coordinate(latitude: latitude, longitude: longitude), state: state, type: type, heading: heading)
         
