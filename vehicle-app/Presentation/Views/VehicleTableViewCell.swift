@@ -8,6 +8,8 @@
 import UIKit
 
 final class VehicleTableViewCell: UITableViewCell {
+    
+    @IBOutlet var stateImage: UIImageView!
     @IBOutlet private(set) var vehicleImage: UIImageView!
     @IBOutlet private(set) var vehicleTypeLabel: UILabel!
     @IBOutlet private(set) var latitudeLabel: UILabel!
