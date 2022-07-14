@@ -113,24 +113,6 @@ final class RemoteLoaderTests: XCTestCase {
         waitForExpectations(timeout: 0.1)
     }
     
-    private func makePoint(id: Int, latitude: Double, longitude: Double, state: State, type: String, heading: Double) -> (model: Point, json: [String: Any]) {
-        
-        let point = Point(id: id, coordinate: Coordinate(latitude: latitude, longitude: longitude), state: state, type: type, heading: heading)
-        
-        let json = [
-            "id": id,
-            "coordinate": [
-                "latitude": latitude,
-                "longitude": longitude
-            ],
-            "state": state == .active ? "ACTIVE": "INACTIVE",
-            "type": type,
-            "heading": heading
-        ] as [String: Any]
-        
-        return (point, json)
-    }
-    
     class HTTPClientSpy: HTTPClient {
         private var messages = [(url: URL, completion: (HTTPClient.Result) -> Void)]()
 
@@ -155,10 +137,5 @@ final class RemoteLoaderTests: XCTestCase {
             )!
             messages[index].completion(.success((data, response)))
         }
-    }
-    
-    func makeJson(_ points: [[String: Any]]) -> Data {
-        let json = ["poiList": points]
-        return try! JSONSerialization.data(withJSONObject: json)
     }
 }
