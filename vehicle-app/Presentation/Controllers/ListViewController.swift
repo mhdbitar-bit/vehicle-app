@@ -14,7 +14,15 @@ final class ListViewController: UITableViewController, Alertable {
     private var cancellables: Set<AnyCancellable> = []
     
     private var points = [Point]() {
-        didSet { tableView.reloadData() }
+        didSet {
+            if Thread.isMainThread {
+                tableView.reloadData()
+            } else {
+                DispatchQueue.main.async { [weak self] in
+                    self?.tableView.reloadData()
+                }
+            }
+        }
     }
     
     convenience init(viewModel: ListViewModel, borderCoorindate: Coordinate) {
@@ -56,7 +64,12 @@ final class ListViewController: UITableViewController, Alertable {
             if isLoading {
                 self?.refreshControl?.beginRefreshing()
             } else {
-                self?.refreshControl?.endRefreshing()
+                if Thread.isMainThread {
+                    self?.refreshControl?.endRefreshing()
+                }
+                DispatchQueue.main.async {
+                    self?.refreshControl?.endRefreshing()
+                }
             }
         }.store(in: &cancellables)
     }
