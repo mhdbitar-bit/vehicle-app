@@ -31,6 +31,7 @@
 		4CDF620928800A8200669979 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF620828800A8200669979 /* Alertable.swift */; };
 		4CDF620B28800ADB00669979 /* VehicleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF620A28800ADB00669979 /* VehicleLoader.swift */; };
 		4CDF620D28800CDE00669979 /* ListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF620C28800CDE00669979 /* ListViewControllerTests.swift */; };
+		4CDF620F288015AA00669979 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF620E288015AA00669979 /* MainQueueDispatchDecorator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		4CDF620828800A8200669979 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		4CDF620A28800ADB00669979 /* VehicleLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleLoader.swift; sourceTree = "<group>"; };
 		4CDF620C28800CDE00669979 /* ListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewControllerTests.swift; sourceTree = "<group>"; };
+		4CDF620E288015AA00669979 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 			children = (
 				4CDF61FE287FFE3E00669979 /* CoreLocationHelpers.swift */,
 				4CDF620828800A8200669979 /* Alertable.swift */,
+				4CDF620E288015AA00669979 /* MainQueueDispatchDecorator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CDF620F288015AA00669979 /* MainQueueDispatchDecorator.swift in Sources */,
 				4CDF61DC287F25DB00669979 /* Point.swift in Sources */,
 				4CDF61E6287F369D00669979 /* HTTPClient.swift in Sources */,
 				4CDF62052880063100669979 /* VehicleCellController.swift in Sources */,
