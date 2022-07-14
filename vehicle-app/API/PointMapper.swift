@@ -43,10 +43,10 @@ final class PointMapper {
         case invalidData
     }
     
-    
+    private static var OK_200: Int { 200 }
     
     static func map(_ data: Data, from response: HTTPURLResponse) throws -> [Point] {
-        guard response.statusCode == 200, let list = try? JSONDecoder().decode(List.self, from: data) else {
+        guard response.statusCode == OK_200, let list = try? JSONDecoder().decode(List.self, from: data) else {
             throw Error.invalidData
         }
         
