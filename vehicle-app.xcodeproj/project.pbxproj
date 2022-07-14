@@ -21,6 +21,7 @@
 		4CDF61ED287FEAEA00669979 /* RemoteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61EC287FEAEA00669979 /* RemoteLoader.swift */; };
 		4CDF61EF287FEB2800669979 /* PointMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61EE287FEB2800669979 /* PointMapper.swift */; };
 		4CDF61F1287FEC8B00669979 /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61F0287FEC8B00669979 /* XCTestCase+MemoryLeackTrackingHelper.swift */; };
+		4CDF61F4287FED6700669979 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61F3287FED6700669979 /* Coordinate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		4CDF61EC287FEAEA00669979 /* RemoteLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoader.swift; sourceTree = "<group>"; };
 		4CDF61EE287FEB2800669979 /* PointMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointMapper.swift; sourceTree = "<group>"; };
 		4CDF61F0287FEC8B00669979 /* XCTestCase+MemoryLeackTrackingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeackTrackingHelper.swift"; sourceTree = "<group>"; };
+		4CDF61F3287FED6700669979 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				4CDF61DB287F25DB00669979 /* Point.swift */,
+				4CDF61F3287FED6700669979 /* Coordinate.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				4CDF61DC287F25DB00669979 /* Point.swift in Sources */,
 				4CDF61E6287F369D00669979 /* HTTPClient.swift in Sources */,
 				4CDF61AB287F216E00669979 /* AppDelegate.swift in Sources */,
+				4CDF61F4287FED6700669979 /* Coordinate.swift in Sources */,
 				4CDF61AD287F216E00669979 /* SceneDelegate.swift in Sources */,
 				4CDF61ED287FEAEA00669979 /* RemoteLoader.swift in Sources */,
 				4CDF61EF287FEB2800669979 /* PointMapper.swift in Sources */,

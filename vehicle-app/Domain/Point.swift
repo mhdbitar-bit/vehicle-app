@@ -19,8 +19,3 @@ struct Point: Equatable {
     let type: String
     let heading: Float
 }
-
-struct Coordinate: Equatable {
-    let latitude: Float
-    let longitude: Float
-}
