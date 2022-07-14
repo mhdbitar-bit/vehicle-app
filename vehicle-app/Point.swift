@@ -12,7 +12,7 @@ enum State: String {
     case inactive = "INACTIVE"
 }
 
-struct Point {
+struct Point: Equatable {
     let id: Int
     let coordinate: Coordinate
     let state: State
@@ -20,7 +20,7 @@ struct Point {
     let heading: Float
 }
 
-struct Coordinate {
+struct Coordinate: Equatable {
     let latitude: Float
     let longitude: Float
 }
