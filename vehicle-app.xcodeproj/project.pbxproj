@@ -22,11 +22,11 @@
 		4CDF61EF287FEB2800669979 /* PointMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61EE287FEB2800669979 /* PointMapper.swift */; };
 		4CDF61F1287FEC8B00669979 /* XCTestCase+MemoryLeackTrackingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61F0287FEC8B00669979 /* XCTestCase+MemoryLeackTrackingHelper.swift */; };
 		4CDF61F4287FED6700669979 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61F3287FED6700669979 /* Coordinate.swift */; };
-		4CDF61F7287FF05600669979 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61F6287FF05600669979 /* ListViewController.swift */; };
 		4CDF61FB287FF0E100669979 /* VehicleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61F9287FF0E100669979 /* VehicleTableViewCell.swift */; };
 		4CDF61FC287FF0E100669979 /* VehicleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CDF61FA287FF0E100669979 /* VehicleTableViewCell.xib */; };
 		4CDF61FF287FFE3E00669979 /* CoreLocationHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF61FE287FFE3E00669979 /* CoreLocationHelpers.swift */; };
 		4CDF62022880047800669979 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF62012880047800669979 /* ListViewModel.swift */; };
+		4CDF62052880063100669979 /* VehicleCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF62042880063100669979 /* VehicleCellController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,11 +58,11 @@
 		4CDF61EE287FEB2800669979 /* PointMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointMapper.swift; sourceTree = "<group>"; };
 		4CDF61F0287FEC8B00669979 /* XCTestCase+MemoryLeackTrackingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeackTrackingHelper.swift"; sourceTree = "<group>"; };
 		4CDF61F3287FED6700669979 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
-		4CDF61F6287FF05600669979 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		4CDF61F9287FF0E100669979 /* VehicleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTableViewCell.swift; sourceTree = "<group>"; };
 		4CDF61FA287FF0E100669979 /* VehicleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleTableViewCell.xib; sourceTree = "<group>"; };
 		4CDF61FE287FFE3E00669979 /* CoreLocationHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationHelpers.swift; sourceTree = "<group>"; };
 		4CDF62012880047800669979 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		4CDF62042880063100669979 /* VehicleCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleCellController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,7 +211,7 @@
 		4CDF6203288005D200669979 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4CDF61F6287FF05600669979 /* ListViewController.swift */,
+				4CDF62042880063100669979 /* VehicleCellController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -320,12 +320,12 @@
 			files = (
 				4CDF61DC287F25DB00669979 /* Point.swift in Sources */,
 				4CDF61E6287F369D00669979 /* HTTPClient.swift in Sources */,
+				4CDF62052880063100669979 /* VehicleCellController.swift in Sources */,
 				4CDF62022880047800669979 /* ListViewModel.swift in Sources */,
 				4CDF61FF287FFE3E00669979 /* CoreLocationHelpers.swift in Sources */,
 				4CDF61AB287F216E00669979 /* AppDelegate.swift in Sources */,
 				4CDF61F4287FED6700669979 /* Coordinate.swift in Sources */,
 				4CDF61AD287F216E00669979 /* SceneDelegate.swift in Sources */,
-				4CDF61F7287FF05600669979 /* ListViewController.swift in Sources */,
 				4CDF61ED287FEAEA00669979 /* RemoteLoader.swift in Sources */,
 				4CDF61EF287FEB2800669979 /* PointMapper.swift in Sources */,
 				4CDF61FB287FF0E100669979 /* VehicleTableViewCell.swift in Sources */,
