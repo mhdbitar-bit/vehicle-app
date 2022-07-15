@@ -41,7 +41,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             )
         )
         viewController.tabBarItem.image = UIImage(systemName: "car.2.fill")
-        viewController.tabBarItem.title = "List"
         return viewController
     }
     
@@ -52,7 +51,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             rootViewController: MapViewController(viewModel: viewModel)
         )
         viewController.tabBarItem.image = UIImage(systemName: "map.fill")
-        viewController.tabBarItem.title = "Map"
         return viewController
     }
     
