@@ -20,6 +20,19 @@ final class MapViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.conforms(to: MKMapViewDelegate.self), "Expected to confirm MKMapViewDelegate")
     }
     
+    func test_AddsAnnotationsToMapView() {
+        let point1 = makePoint(id: 10, latitude: 3.552315291358475, longitude: 10.011982172727585, state: .inactive, type: "TAXI", heading: 500)
+        
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+    
+        loader.completeVehicleLoading(with: [point1.model], at: 0)
+        
+        let annotationsOnMap = sut.mapView.annotations
+        XCTAssertEqual(annotationsOnMap.count, 1)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: MapViewController, loader: LoaderSpy) {
