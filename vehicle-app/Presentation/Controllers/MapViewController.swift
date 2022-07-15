@@ -20,25 +20,21 @@ final class MapViewController: UIViewController {
     }
     
     private func setupMap() {
-        let latitude: CLLocationDegrees = 53.55574629085598
-        let longitude: CLLocationDegrees = 9.978099837899208
+        let latitude: CLLocationDegrees = 53.5511
+        let longitude: CLLocationDegrees = 9.9937
+        let initialLocation = CLLocation(latitude: latitude, longitude: longitude)
+        mapView.centerToLocation(initialLocation)
         
-        let latDelta: CLLocationDegrees = 0.02
-        let lonDelta: CLLocationDegrees = 0.02
+        let oahuCenter = CLLocation(latitude: 53.5511, longitude: 9.9937)
+        let region = MKCoordinateRegion(
+            center: oahuCenter.coordinate,
+            latitudinalMeters: 50000,
+            longitudinalMeters: 60000
+        )
+        mapView.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: region), animated: true)
         
-        let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
-        
-        let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        
-        let region = MKCoordinateRegion(center: coordinates, span: span)
-        
-        let annotation: MKPointAnnotation = MKPointAnnotation()
-        annotation.coordinate = coordinates
-        annotation.title = "You are here"
-        annotation.subtitle = "Your coordinates are \n\(latitude)° N \n\(longitude)° W"
-        
-        mapView.setRegion(region, animated: true)
-        mapView.addAnnotation(annotation)
+        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
+        mapView.setCameraZoomRange(zoomRange, animated: true)
     }
     
     private func setupLayout() {
@@ -55,4 +51,15 @@ final class MapViewController: UIViewController {
 
 extension MapViewController: MKMapViewDelegate {
     
+}
+
+private extension MKMapView {
+    func centerToLocation(_ location: CLLocation, regionRadius: CLLocationDistance = 1000) {
+        let coordinateRegion = MKCoordinateRegion(
+            center: location.coordinate,
+            latitudinalMeters: regionRadius,
+            longitudinalMeters: regionRadius
+        )
+        setRegion(coordinateRegion, animated: true)
+    }
 }
