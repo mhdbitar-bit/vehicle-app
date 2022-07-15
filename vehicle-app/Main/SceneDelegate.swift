@@ -22,21 +22,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func configureWindow() {
-        navigationController.setViewControllers([makeRootViewController()], animated: false)
+        navigationController.setViewControllers([makeMapViewController()], animated: false)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
     
     private func makeRootViewController() -> ListViewController {
-        let coordinate1 = Coordinate(latitude: 53.694865, longitude: 9.757589)
-        let coordinate2 = Coordinate(latitude: 53.394655, longitude: 10.099891)
-        let remoteURL = URL(string: "https://api.mytaxi.com/poiservice/poi/v1")!
-        
-        let baseURL = VehicleEndpoint.getPoints.url(baseURL: remoteURL, coordinate1: coordinate1, coordinate2: coordinate2)
-        let loader = RemoteLoader(url: baseURL, client: remoteClient)
-        let viewModel = ListViewModel(loader: MainQueueDispatchDecorator(decoratee: loader))
-        let viewController = ListViewController(viewModel: viewModel, borderCoorindate: coordinate1)
+        let (loader, baseURL) = makeRemoteLoader()
+        let viewModel = ListViewModel(loader: MainQueueDispatchDecorator(decoratee: loader), url: baseURL)
+        let viewController = ListViewController(viewModel: viewModel, borderCoorindate: southWeastCoordinate)
         return viewController
+    }
+    
+    private func makeMapViewController() -> MapViewController {
+        let (loader, baseURL) = makeRemoteLoader()
+        let viewModel = MapViewModel(loader: MainQueueDispatchDecorator(decoratee: loader), url: baseURL)
+        let viewController = MapViewController(viewModel: viewModel)
+        return viewController
+    }
+    
+    private func makeRemoteLoader() -> (RemoteLoader, URL) {
+        let loader = RemoteLoader(client: remoteClient)
+        let baseURL = VehicleEndpoint.getPoints.url(baseURL: remoteURL, coordinate1: southWeastCoordinate, coordinate2: northEastCoordinate)
+        return (loader, baseURL)
     }
 }
 
