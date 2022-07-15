@@ -12,7 +12,7 @@ final class RemoteLoaderTests: XCTestCase {
     func test_load_requestsDataFromURL() {
         let (sut, client) = makeSUT()
         
-        sut.load { _ in }
+        sut.load(url: anyURL()) { _ in }
         
         XCTAssertEqual(client.requestedURLs, [anyURL()])
     }
@@ -20,8 +20,8 @@ final class RemoteLoaderTests: XCTestCase {
     func test_loadTwice_requestsDataFromURLTwice() {
         let (sut, client) = makeSUT()
         
-        sut.load { _ in }
-        sut.load { _ in }
+        sut.load(url: anyURL()) { _ in }
+        sut.load(url: anyURL()) { _ in }
         
         XCTAssertEqual(client.requestedURLs, [anyURL(), anyURL()])
     }
@@ -83,7 +83,7 @@ final class RemoteLoaderTests: XCTestCase {
     
     private func makeSUT(url: URL = anyURL(), file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
-        let sut = RemoteLoader(url: url, client: client)
+        let sut = RemoteLoader(client: client)
         trackForMemoryLeacks(client, file: file, line: line)
         trackForMemoryLeacks(sut, file: file, line: line)
         return (sut, client)
@@ -93,7 +93,7 @@ final class RemoteLoaderTests: XCTestCase {
         
         let exp = expectation(description: "Wait for load completion")
         
-        sut.load { receivedResult in
+        sut.load(url: anyURL()) { receivedResult in
             switch (receivedResult, expectedResult) {
             case let (.success(receivedItems), .success(expectedItems)):
                 XCTAssertEqual(receivedItems, expectedItems, file: file, line: line)

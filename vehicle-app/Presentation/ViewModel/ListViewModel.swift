@@ -14,16 +14,18 @@ final class ListViewModel {
     @Published var isLoading: Bool = false
     @Published var error: String? = nil
     
-    let loader: VehicleLoader
+    private let loader: VehicleLoader
+    private let url: URL
     
-    init(loader: VehicleLoader) {
+    init(loader: VehicleLoader, url: URL) {
         self.loader = loader
+        self.url = url
     }
     
     func loadPoints() {
         isLoading = true
         
-        loader.load { [weak self] result in
+        loader.load(url: url) { [weak self] result in
             guard let self = self else { return }
             
             self.isLoading = false

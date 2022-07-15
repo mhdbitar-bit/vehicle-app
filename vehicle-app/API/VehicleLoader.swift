@@ -10,5 +10,5 @@ import Foundation
 protocol VehicleLoader {
     typealias Result = Swift.Result<[Point], Error>
     
-    func load(completion: @escaping (Result) -> Void)
+    func load(url: URL, completion: @escaping (Result) -> Void)
 }

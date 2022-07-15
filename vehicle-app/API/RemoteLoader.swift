@@ -8,7 +8,6 @@
 import Foundation
 
 final class RemoteLoader: VehicleLoader {
-    private let url: URL
     private let client: HTTPClient
     
     enum Error: Swift.Error {
@@ -16,12 +15,11 @@ final class RemoteLoader: VehicleLoader {
         case invalidData
     }
     
-    init(url: URL, client: HTTPClient) {
-        self.url = url
+    init(client: HTTPClient) {
         self.client = client
     }
     
-    func load(completion: @escaping (VehicleLoader.Result) -> Void) {
+    func load(url: URL, completion: @escaping (VehicleLoader.Result) -> Void) {
         client.get(from: url) { [weak self] result in
             guard let self = self else { return }
 

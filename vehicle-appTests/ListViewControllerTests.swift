@@ -84,7 +84,7 @@ final class ListViewControllerTests: XCTestCase {
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: ListViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
-        let viewModel = ListViewModel(loader: MainQueueDispatchDecorator(decoratee: loader))
+        let viewModel = ListViewModel(loader: MainQueueDispatchDecorator(decoratee: loader), url: anyURL())
         let sut = ListViewController(viewModel: viewModel, borderCoorindate: Coordinate(latitude: 53.694865, longitude: 9.757589))
         trackForMemoryLeacks(loader, file: file, line: line)
         trackForMemoryLeacks(sut, file: file, line: line)
@@ -128,7 +128,7 @@ final class ListViewControllerTests: XCTestCase {
             return completions.count
         }
         
-        func load(completion: @escaping (Result) -> Void) {
+        func load(url: URL, completion: @escaping (Result) -> Void) {
             completions.append(completion)
         }
         
