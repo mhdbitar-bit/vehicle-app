@@ -3,13 +3,21 @@ import XCTest
 import MapKit
 
 final class MapViewControllerTests: XCTestCase {
-
+    
     func test_IsComposedOfMapView() {
         let (sut, _) = makeSUT()
         
         sut.loadViewIfNeeded()
         
         XCTAssertNotNil(sut.mapView)
+    }
+    
+    func test_conformsToMKMapViewDelegate() {
+        let (sut, _) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        
+        XCTAssertTrue(sut.conforms(to: MKMapViewDelegate.self), "Expected to confirm MKMapViewDelegate")
     }
     
     // MARK: - Helpers
