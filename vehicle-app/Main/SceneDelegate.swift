@@ -11,7 +11,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    private let navigationController = UINavigationController()
     let remoteClient = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -22,22 +21,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func configureWindow() {
-        navigationController.setViewControllers([makeMapViewController()], animated: false)
-        window?.rootViewController = navigationController
+        window?.rootViewController = makeRootViewController()
         window?.makeKeyAndVisible()
     }
     
-    private func makeRootViewController() -> ListViewController {
+    private func makeRootViewController() -> UIViewController {
+        let tabBar = UITabBarController()
+        tabBar.viewControllers = [makeListViewController(), makeMapViewController()]
+        return tabBar
+    }
+    
+    private func makeListViewController() -> UIViewController {
         let (loader, baseURL) = makeRemoteLoader()
         let viewModel = ListViewModel(loader: MainQueueDispatchDecorator(decoratee: loader), url: baseURL)
-        let viewController = ListViewController(viewModel: viewModel, borderCoorindate: southWeastCoordinate)
+        let viewController = UINavigationController(
+            rootViewController: ListViewController(
+                viewModel: viewModel,
+                borderCoorindate: southWeastCoordinate
+            )
+        )
+        viewController.tabBarItem.image = UIImage(systemName: "car.2.fill")
+        viewController.tabBarItem.title = "List"
         return viewController
     }
     
-    private func makeMapViewController() -> MapViewController {
+    private func makeMapViewController() -> UIViewController {
         let (loader, baseURL) = makeRemoteLoader()
         let viewModel = MapViewModel(loader: MainQueueDispatchDecorator(decoratee: loader), url: baseURL)
-        let viewController = MapViewController(viewModel: viewModel)
+        let viewController = UINavigationController(
+            rootViewController: MapViewController(viewModel: viewModel)
+        )
+        viewController.tabBarItem.image = UIImage(systemName: "map.fill")
+        viewController.tabBarItem.title = "Map"
         return viewController
     }
     
@@ -47,4 +62,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return (loader, baseURL)
     }
 }
-
