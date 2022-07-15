@@ -24,12 +24,14 @@ final class Vehicle: NSObject, MKAnnotation {
 final class MapViewController: UIViewController, Alertable {
     
     private var viewModel: MapViewModel!
+    
     private var cancellables: Set<AnyCancellable> = []
     private var vehicles: [Vehicle] = [] {
         didSet {
             self.mapView.addAnnotations(vehicles)
         }
     }
+    
     
     private let mapView = MKMapView()
     
@@ -41,29 +43,21 @@ final class MapViewController: UIViewController, Alertable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = viewModel.title
+        mapView.delegate = self
         setupMap()
         setupLayout()
         bind()
     }
     
     private func setupMap() {
-        let latitude: CLLocationDegrees = 53.5511
-        let longitude: CLLocationDegrees = 9.9937
+        let latitude: CLLocationDegrees = southWeastCoordinate.latitude
+        let longitude: CLLocationDegrees = southWeastCoordinate.longitude
+        
         let initialLocation = CLLocation(latitude: latitude, longitude: longitude)
         mapView.centerToLocation(initialLocation)
-        
-        let oahuCenter = CLLocation(latitude: 53.5511, longitude: 9.9937)
-        let region = MKCoordinateRegion(
-            center: oahuCenter.coordinate,
-            latitudinalMeters: 50000,
-            longitudinalMeters: 60000
-        )
-        mapView.setCameraBoundary(MKMapView.CameraBoundary(coordinateRegion: region), animated: true)
-        
-        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
-        mapView.setCameraZoomRange(zoomRange, animated: true)
-        
-        viewModel.loadPoints()
+                
+        loadVehicles()
     }
     
     private func setupLayout() {
@@ -75,6 +69,10 @@ final class MapViewController: UIViewController, Alertable {
         mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         mapView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func loadVehicles() {
+        viewModel.loadPoints()
     }
     
     private func bind() {
@@ -96,6 +94,20 @@ final class MapViewController: UIViewController, Alertable {
                 self.showAlert(message: error)
             }
         }.store(in: &cancellables)
+    }
+}
+
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let mapRect = mapView.visibleMapRect
+        let northEastCoordinate = getCoordinateFromMapRectanglePoint(x: mapRect.maxX, y: mapRect.origin.y)
+        let southWestCoordinate = getCoordinateFromMapRectanglePoint(x: mapRect.origin.x, y: mapRect.maxY)
+        viewModel.loadPoints(northEast: northEastCoordinate, southWeast: southWestCoordinate)
+    }
+    
+    private func getCoordinateFromMapRectanglePoint(x: Double, y: Double) -> Coordinate {
+        let mapPoint = MKMapPoint(x: x, y: y)
+        return Coordinate(latitude: mapPoint.coordinate.latitude, longitude: mapPoint.coordinate.longitude)
     }
 }
 
