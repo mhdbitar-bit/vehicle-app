@@ -85,7 +85,7 @@ final class ListViewControllerTests: XCTestCase {
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: ListViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
         let viewModel = ListViewModel(loader: MainQueueDispatchDecorator(decoratee: loader), url: anyURL())
-        let sut = ListViewController(viewModel: viewModel, borderCoorindate: Coordinate(latitude: 53.694865, longitude: 9.757589))
+        let sut = ListViewController(viewModel: viewModel)
         trackForMemoryLeacks(loader, file: file, line: line)
         trackForMemoryLeacks(sut, file: file, line: line)
         return (sut, loader)
@@ -114,9 +114,13 @@ final class ListViewControllerTests: XCTestCase {
         
         XCTAssertEqual(cell.longitudeLabel.text, "\(point.coordinate.longitude)", "Expected longitude to be \(String(describing: point.coordinate.longitude)) for vehicle longitude view at index \(index)", file: file, line: line)
         
-        let distance = CoreLocationHelpers.calculateDistanceBetween(Coordinate(latitude: 53.694865, longitude: 9.757589), point.coordinate)
+        let northDistance = CoreLocationHelpers.calculateDistanceBetween(Coordinate(latitude: northEastCoordinate.latitude, longitude: northEastCoordinate.longitude), point.coordinate)
         
-        XCTAssertEqual(cell.northEastDistanceLabel.text, distance, "Expected distance to be \(distance) for vehicle distance view at index \(index)", file: file, line: line)
+        XCTAssertEqual(cell.northEastDistanceLabel.text, northDistance, "Expected distance to be \(northDistance) for vehicle distance view at index \(index)", file: file, line: line)
+
+        let southDistance = CoreLocationHelpers.calculateDistanceBetween(Coordinate(latitude: southWeastCoordinate.latitude, longitude: southWeastCoordinate.longitude), point.coordinate)
+        
+        XCTAssertEqual(cell.southWestboundDistanceLabel.text, southDistance, "Expected distance to be \(southDistance) for vehicle distance view at index \(index)", file: file, line: line)
     }
     
     private class LoaderSpy: VehicleLoader {
