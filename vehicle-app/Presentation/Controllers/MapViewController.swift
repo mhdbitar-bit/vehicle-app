@@ -33,11 +33,17 @@ final class MapViewController: UIViewController, Alertable {
     
     private let mapView = MKMapView()
     
+    convenience init(viewModel: MapViewModel) {
+        self.init()
+        self.viewModel = viewModel
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupMap()
         setupLayout()
+        bind()
     }
     
     private func setupMap() {
@@ -70,10 +76,27 @@ final class MapViewController: UIViewController, Alertable {
         
         mapView.translatesAutoresizingMaskIntoConstraints = false
     }
-}
-
-extension MapViewController: MKMapViewDelegate {
     
+    private func bind() {
+        bindError()
+        bindItems()
+    }
+    
+    private func bindItems() {
+        viewModel.$vehicles.sink { [weak self] vehicles in
+            guard let self = self else { return }
+            self.vehicles = vehicles
+        }.store(in: &cancellables)
+    }
+    
+    private func bindError() {
+        viewModel.$error.sink { [weak self] error in
+            guard let self = self else { return }
+            if let error = error {
+                self.showAlert(message: error)
+            }
+        }.store(in: &cancellables)
+    }
 }
 
 private extension MKMapView {
