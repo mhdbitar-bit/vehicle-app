@@ -113,6 +113,42 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		4C45DD2C2881A81C0055AECD /* List Scene */ = {
+			isa = PBXGroup;
+			children = (
+				4C45DD2E2881A8460055AECD /* Controller */,
+				4C45DD2D2881A83A0055AECD /* ViewModel */,
+				4CDF61F8287FF07600669979 /* Views */,
+			);
+			path = "List Scene";
+			sourceTree = "<group>";
+		};
+		4C45DD2D2881A83A0055AECD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4CDF62012880047800669979 /* ListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4C45DD2E2881A8460055AECD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4CDF62042880063100669979 /* VehicleCellController.swift */,
+				4CDF6206288008FC00669979 /* ListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4C45DD2F2881A8550055AECD /* Map Scene */ = {
+			isa = PBXGroup;
+			children = (
+				4CDF6203288005D200669979 /* Controllers */,
+				4CDF62002880046F00669979 /* ViewModel */,
+			);
+			path = "Map Scene";
+			sourceTree = "<group>";
+		};
 		4CDF619E287F216E00669979 = {
 			isa = PBXGroup;
 			children = (
@@ -211,10 +247,9 @@
 		4CDF61F5287FED9100669979 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				4C45DD2F2881A8550055AECD /* Map Scene */,
+				4C45DD2C2881A81C0055AECD /* List Scene */,
 				4CDF61FD287FFE2F00669979 /* Helpers */,
-				4CDF62002880046F00669979 /* ViewModel */,
-				4CDF61F8287FF07600669979 /* Views */,
-				4CDF6203288005D200669979 /* Controllers */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -241,7 +276,6 @@
 		4CDF62002880046F00669979 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				4CDF62012880047800669979 /* ListViewModel.swift */,
 				4C45DD2328816CAD0055AECD /* MapViewModel.swift */,
 			);
 			path = ViewModel;
@@ -250,8 +284,6 @@
 		4CDF6203288005D200669979 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4CDF62042880063100669979 /* VehicleCellController.swift */,
-				4CDF6206288008FC00669979 /* ListViewController.swift */,
 				4CDF621428802A0200669979 /* MapViewController.swift */,
 			);
 			path = Controllers;
