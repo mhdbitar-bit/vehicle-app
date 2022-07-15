@@ -81,16 +81,16 @@
                                         <rect key="frame" x="41" y="8" width="255" height="70"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="D8J-mL-I7l" userLabel="Latitude">
-                                                <rect key="frame" x="0.0" y="0.0" width="255" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="255" height="11.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Latitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kln-w3-zoL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="129" height="18"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="129" height="11.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7C-WX-KLm">
-                                                        <rect key="frame" x="137" y="0.0" width="118" height="18"/>
+                                                        <rect key="frame" x="137" y="0.0" width="118" height="11.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
@@ -98,16 +98,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PEw-Bg-zhb" userLabel="Longitude">
-                                                <rect key="frame" x="0.0" y="26" width="255" height="18"/>
+                                                <rect key="frame" x="0.0" y="19.5" width="255" height="11.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Longitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fm9-M5-0b3">
-                                                        <rect key="frame" x="0.0" y="0.0" width="129" height="18"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="129" height="11.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKS-Im-fhh">
-                                                        <rect key="frame" x="137" y="0.0" width="118" height="18"/>
+                                                        <rect key="frame" x="137" y="0.0" width="118" height="11.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
@@ -115,16 +115,33 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dof-Nn-Mbf">
-                                                <rect key="frame" x="0.0" y="52" width="255" height="18"/>
+                                                <rect key="frame" x="0.0" y="39" width="255" height="11.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpS-26-c8P">
-                                                        <rect key="frame" x="0.0" y="0.0" width="49.5" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Distance  from North East" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpS-26-c8P">
+                                                        <rect key="frame" x="0.0" y="0.0" width="49.5" height="11.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81L-qN-n9E">
-                                                        <rect key="frame" x="57.5" y="0.0" width="197.5" height="18"/>
+                                                        <rect key="frame" x="57.5" y="0.0" width="197.5" height="11.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mcd-0O-KWz">
+                                                <rect key="frame" x="0.0" y="58.5" width="255" height="11.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Distance  from South West" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aig-IO-RPB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="49.5" height="11.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zph-kS-yin">
+                                                        <rect key="frame" x="57.5" y="0.0" width="197.5" height="11.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
@@ -170,9 +187,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="distanceLabel" destination="81L-qN-n9E" id="bUE-bS-KKw"/>
                 <outlet property="latitudeLabel" destination="X7C-WX-KLm" id="jB7-eu-0jd"/>
                 <outlet property="longitudeLabel" destination="cKS-Im-fhh" id="vRA-Bo-NPa"/>
+                <outlet property="northEastDistanceLabel" destination="81L-qN-n9E" id="bUE-bS-KKw"/>
+                <outlet property="southWestboundDistanceLabel" destination="zph-kS-yin" id="kdY-Ne-VWm"/>
                 <outlet property="stateImage" destination="4CM-qY-6PD" id="q6Z-gJ-czg"/>
                 <outlet property="vehicleImage" destination="g4c-CO-sNz" id="GSV-aW-xmB"/>
                 <outlet property="vehicleTypeLabel" destination="VvW-bG-YI2" id="7RG-0V-5IO"/>

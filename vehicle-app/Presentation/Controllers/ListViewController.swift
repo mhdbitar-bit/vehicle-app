@@ -10,17 +10,15 @@ import Combine
 
 final class ListViewController: UITableViewController, Alertable {
     private var viewModel: ListViewModel!
-    private var borderCoorindate: Coordinate!
     private var cancellables: Set<AnyCancellable> = []
     
     private var points = [Point]() {
         didSet { tableView.reloadData() }
     }
     
-    convenience init(viewModel: ListViewModel, borderCoorindate: Coordinate) {
+    convenience init(viewModel: ListViewModel) {
         self.init()
         self.viewModel = viewModel
-        self.borderCoorindate = borderCoorindate
     }
     
     override func viewDidLoad() {
@@ -86,6 +84,6 @@ final class ListViewController: UITableViewController, Alertable {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return VehicleCellController(model: points[indexPath.row], borderCoordinate: borderCoorindate).view(tableView)
+        return VehicleCellController(model: points[indexPath.row]).view(tableView)
     }
 }

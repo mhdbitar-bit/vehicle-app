@@ -116,7 +116,7 @@ final class ListViewControllerTests: XCTestCase {
         
         let distance = CoreLocationHelpers.calculateDistanceBetween(Coordinate(latitude: 53.694865, longitude: 9.757589), point.coordinate)
         
-        XCTAssertEqual(cell.distanceLabel.text, distance, "Expected distance to be \(distance) for vehicle distance view at index \(index)", file: file, line: line)
+        XCTAssertEqual(cell.northEastDistanceLabel.text, distance, "Expected distance to be \(distance) for vehicle distance view at index \(index)", file: file, line: line)
     }
     
     private class LoaderSpy: VehicleLoader {

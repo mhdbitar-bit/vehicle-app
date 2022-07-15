@@ -35,10 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let (loader, baseURL) = makeRemoteLoader()
         let viewModel = ListViewModel(loader: MainQueueDispatchDecorator(decoratee: loader), url: baseURL)
         let viewController = UINavigationController(
-            rootViewController: ListViewController(
-                viewModel: viewModel,
-                borderCoorindate: southWeastCoordinate
-            )
+            rootViewController: ListViewController(viewModel: viewModel)
         )
         viewController.tabBarItem.image = UIImage(systemName: "car.2.fill")
         return viewController

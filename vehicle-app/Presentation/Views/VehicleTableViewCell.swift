@@ -14,7 +14,8 @@ final class VehicleTableViewCell: UITableViewCell {
     @IBOutlet private(set) var vehicleTypeLabel: UILabel!
     @IBOutlet private(set) var latitudeLabel: UILabel!
     @IBOutlet private(set) var longitudeLabel: UILabel!
-    @IBOutlet private(set) var distanceLabel: UILabel!
+    @IBOutlet private(set) var northEastDistanceLabel: UILabel!
+    @IBOutlet var southWestboundDistanceLabel: UILabel!
     
     static let ID = "VehicleTableViewCell"
 }

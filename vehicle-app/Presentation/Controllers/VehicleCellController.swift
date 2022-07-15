@@ -9,11 +9,9 @@ import UIKit
 
 final class VehicleCellController {
     private let model: Point
-    private let borderCoordinate: Coordinate
     
-    init(model: Point, borderCoordinate: Coordinate) {
+    init(model: Point) {
         self.model = model
-        self.borderCoordinate = borderCoordinate
     }
     
     func view(_ tableView: UITableView) -> UITableViewCell {
@@ -21,7 +19,8 @@ final class VehicleCellController {
         cell.vehicleTypeLabel.text = model.type
         cell.latitudeLabel.text = "\(model.coordinate.latitude)"
         cell.longitudeLabel.text = "\(model.coordinate.longitude)"
-        cell.distanceLabel.text = CoreLocationHelpers.calculateDistanceBetween(borderCoordinate, model.coordinate)
+        cell.northEastDistanceLabel.text = CoreLocationHelpers.calculateDistanceBetween(northEastCoordinate, model.coordinate)
+        cell.southWestboundDistanceLabel.text = CoreLocationHelpers.calculateDistanceBetween(southWeastCoordinate, model.coordinate)
         
         if model.state == .active {
             cell.stateImage.image = UIImage(systemName: "checkmark.circle.fill")
