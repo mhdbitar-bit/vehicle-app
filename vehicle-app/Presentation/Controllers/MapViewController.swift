@@ -33,7 +33,7 @@ final class MapViewController: UIViewController, Alertable {
     }
     
     
-    private let mapView = MKMapView()
+    let mapView = MKMapView()
     
     convenience init(viewModel: MapViewModel) {
         self.init()
