@@ -7,8 +7,29 @@
 
 import UIKit
 import MapKit
+import Combine
 
-final class MapViewController: UIViewController {
+final class Vehicle: NSObject, MKAnnotation {
+    let title: String?
+    let coordinate: CLLocationCoordinate2D
+    
+    init(title: String?, coordinate: CLLocationCoordinate2D) {
+        self.title = title
+        self.coordinate = coordinate
+        
+        super.init()
+    }
+}
+
+final class MapViewController: UIViewController, Alertable {
+    
+    private var viewModel: MapViewModel!
+    private var cancellables: Set<AnyCancellable> = []
+    private var vehicles: [Vehicle] = [] {
+        didSet {
+            self.mapView.addAnnotations(vehicles)
+        }
+    }
     
     private let mapView = MKMapView()
     
@@ -35,6 +56,8 @@ final class MapViewController: UIViewController {
         
         let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
         mapView.setCameraZoomRange(zoomRange, animated: true)
+        
+        viewModel.loadPoints()
     }
     
     private func setupLayout() {
