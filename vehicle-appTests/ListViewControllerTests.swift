@@ -122,29 +122,6 @@ final class ListViewControllerTests: XCTestCase {
         
         XCTAssertEqual(cell.southWestboundDistanceLabel.text, southDistance, "Expected distance to be \(southDistance) for vehicle distance view at index \(index)", file: file, line: line)
     }
-    
-    private class LoaderSpy: VehicleLoader {
-        typealias Result = RemoteLoader.Result
-        
-        private var completions = [(Result) -> Void]()
-        
-        var loadCallCount: Int {
-            return completions.count
-        }
-        
-        func load(url: URL, completion: @escaping (Result) -> Void) {
-            completions.append(completion)
-        }
-        
-        func completeVehicleLoading(with points: [Point] = [], at index: Int = 0) {
-            completions[index](.success(points))
-        }
-        
-        func completeVehicleWithError(at index: Int = 0) {
-            let error = NSError(domain: "an error", code: 0)
-            completions[index](.failure(error))
-        }
-    }
 }
 
 private extension UITableViewController {
