@@ -33,6 +33,7 @@
 		4CDF620D28800CDE00669979 /* ListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF620C28800CDE00669979 /* ListViewControllerTests.swift */; };
 		4CDF620F288015AA00669979 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF620E288015AA00669979 /* MainQueueDispatchDecorator.swift */; };
 		4CDF62112880175300669979 /* VehicleEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF62102880175300669979 /* VehicleEndpoint.swift */; };
+		4CDF621528802A0200669979 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDF621428802A0200669979 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		4CDF620C28800CDE00669979 /* ListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewControllerTests.swift; sourceTree = "<group>"; };
 		4CDF620E288015AA00669979 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 		4CDF62102880175300669979 /* VehicleEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleEndpoint.swift; sourceTree = "<group>"; };
+		4CDF621428802A0200669979 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 			children = (
 				4CDF62042880063100669979 /* VehicleCellController.swift */,
 				4CDF6206288008FC00669979 /* ListViewController.swift */,
+				4CDF621428802A0200669979 /* MapViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				4CDF620B28800ADB00669979 /* VehicleLoader.swift in Sources */,
 				4CDF61ED287FEAEA00669979 /* RemoteLoader.swift in Sources */,
 				4CDF61EF287FEB2800669979 /* PointMapper.swift in Sources */,
+				4CDF621528802A0200669979 /* MapViewController.swift in Sources */,
 				4CDF61FB287FF0E100669979 /* VehicleTableViewCell.swift in Sources */,
 				4CDF6207288008FC00669979 /* ListViewController.swift in Sources */,
 				4CDF62112880175300669979 /* VehicleEndpoint.swift in Sources */,
