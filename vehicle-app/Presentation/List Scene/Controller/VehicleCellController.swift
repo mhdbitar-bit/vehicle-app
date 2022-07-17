@@ -20,7 +20,7 @@ final class VehicleCellController {
         cell.latitudeLabel.text = "\(model.coordinate.latitude)"
         cell.longitudeLabel.text = "\(model.coordinate.longitude)"
         cell.northEastDistanceLabel.text = CoreLocationHelpers.calculateDistanceBetween(northEastCoordinate, model.coordinate)
-        cell.southWestboundDistanceLabel.text = CoreLocationHelpers.calculateDistanceBetween(southWeastCoordinate, model.coordinate)
+        cell.southWestboundDistanceLabel.text = CoreLocationHelpers.calculateDistanceBetween(southWestCoordinate, model.coordinate)
         
         if model.state == .active {
             cell.stateImage.image = UIImage(systemName: "checkmark.circle.fill")

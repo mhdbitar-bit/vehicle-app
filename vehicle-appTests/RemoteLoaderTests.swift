@@ -29,7 +29,7 @@ final class RemoteLoaderTests: XCTestCase {
     func test_load_deliversConnectivityErrorOnClientError() {
         let (sut, client) = makeSUT()
         
-        expect(sut, toCompleteWith: .failure(RemoteLoader.Error.connecitivy)) {
+        expect(sut, toCompleteWith: .failure(RemoteLoader.Error.connectivity)) {
             let clientError = NSError(domain: "Test", code: 0)
             client.complete(with: clientError)
         }

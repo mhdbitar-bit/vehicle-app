@@ -22,10 +22,10 @@ final class MapViewModel {
         self.url = url
     }
     
-    func loadPoints(northEast: Coordinate? = nil, southWeast: Coordinate? = nil) {
+    func loadPoints(northEast: Coordinate? = nil, southWest: Coordinate? = nil) {
         var pointsUrl = url
-        if let northEast = northEast, let southWeast = southWeast {
-            pointsUrl = VehicleEndpoint.getPoints.url(baseURL: remoteURL, coordinate1: southWeast, coordinate2: northEast)
+        if let northEast = northEast, let southWest = southWest {
+            pointsUrl = VehicleEndpoint.getPoints.url(baseURL: remoteURL, coordinate1: southWest, coordinate2: northEast)
         }
         
         loader.load(url: pointsUrl) { [weak self] result in

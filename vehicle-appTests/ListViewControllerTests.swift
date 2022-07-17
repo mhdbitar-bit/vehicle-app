@@ -118,7 +118,7 @@ final class ListViewControllerTests: XCTestCase {
         
         XCTAssertEqual(cell.northEastDistanceLabel.text, northDistance, "Expected distance to be \(northDistance) for vehicle distance view at index \(index)", file: file, line: line)
 
-        let southDistance = CoreLocationHelpers.calculateDistanceBetween(Coordinate(latitude: southWeastCoordinate.latitude, longitude: southWeastCoordinate.longitude), point.coordinate)
+        let southDistance = CoreLocationHelpers.calculateDistanceBetween(Coordinate(latitude: southWestCoordinate.latitude, longitude: southWestCoordinate.longitude), point.coordinate)
         
         XCTAssertEqual(cell.southWestboundDistanceLabel.text, southDistance, "Expected distance to be \(southDistance) for vehicle distance view at index \(index)", file: file, line: line)
     }

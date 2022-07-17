@@ -11,7 +11,7 @@ final class RemoteLoader: VehicleLoader {
     private let client: HTTPClient
     
     enum Error: Swift.Error {
-        case connecitivy
+        case connectivity
         case invalidData
     }
     
@@ -27,7 +27,7 @@ final class RemoteLoader: VehicleLoader {
             case let (.success((data, response))):
                 completion(self.map(data, from: response))
             case .failure:
-                completion(.failure(Error.connecitivy))
+                completion(.failure(Error.connectivity))
             }
         }
     }

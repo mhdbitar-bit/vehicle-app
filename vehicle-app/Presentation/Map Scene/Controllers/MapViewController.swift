@@ -25,7 +25,7 @@ final class MapViewController: UIViewController, Alertable {
     
     private var viewModel: MapViewModel!
     
-    private var cancellables: Set<AnyCancellable> = []
+    private var cancelable: Set<AnyCancellable> = []
     private var vehicles: [Vehicle] = [] {
         didSet {
             self.mapView.addAnnotations(vehicles)
@@ -51,8 +51,8 @@ final class MapViewController: UIViewController, Alertable {
     }
     
     private func setupMap() {
-        let latitude: CLLocationDegrees = southWeastCoordinate.latitude
-        let longitude: CLLocationDegrees = southWeastCoordinate.longitude
+        let latitude: CLLocationDegrees = southWestCoordinate.latitude
+        let longitude: CLLocationDegrees = southWestCoordinate.longitude
         
         let initialLocation = CLLocation(latitude: latitude, longitude: longitude)
         mapView.centerToLocation(initialLocation)
@@ -84,7 +84,7 @@ final class MapViewController: UIViewController, Alertable {
         viewModel.$vehicles.sink { [weak self] vehicles in
             guard let self = self else { return }
             self.vehicles = vehicles
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
     
     private func bindError() {
@@ -93,7 +93,7 @@ final class MapViewController: UIViewController, Alertable {
             if let error = error {
                 self.showAlert(message: error)
             }
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
 }
 
@@ -102,7 +102,7 @@ extension MapViewController: MKMapViewDelegate {
         let mapRect = mapView.visibleMapRect
         let northEastCoordinate = getCoordinateFromMapRectanglePoint(x: mapRect.maxX, y: mapRect.origin.y)
         let southWestCoordinate = getCoordinateFromMapRectanglePoint(x: mapRect.origin.x, y: mapRect.maxY)
-        viewModel.loadPoints(northEast: northEastCoordinate, southWeast: southWestCoordinate)
+        viewModel.loadPoints(northEast: northEastCoordinate, southWest: southWestCoordinate)
     }
     
     private func getCoordinateFromMapRectanglePoint(x: Double, y: Double) -> Coordinate {

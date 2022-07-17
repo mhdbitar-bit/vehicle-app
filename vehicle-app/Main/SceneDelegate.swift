@@ -53,7 +53,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func makeRemoteLoader() -> (RemoteLoader, URL) {
         let loader = RemoteLoader(client: remoteClient)
-        let baseURL = VehicleEndpoint.getPoints.url(baseURL: remoteURL, coordinate1: southWeastCoordinate, coordinate2: northEastCoordinate)
+        let baseURL = VehicleEndpoint.getPoints.url(baseURL: remoteURL, coordinate1: southWestCoordinate, coordinate2: northEastCoordinate)
         return (loader, baseURL)
     }
 }

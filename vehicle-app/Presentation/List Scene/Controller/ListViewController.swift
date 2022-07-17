@@ -10,7 +10,7 @@ import Combine
 
 final class ListViewController: UITableViewController, Alertable {
     private var viewModel: ListViewModel!
-    private var cancellables: Set<AnyCancellable> = []
+    private var cancelable: Set<AnyCancellable> = []
     
     private var points = [Point]() {
         didSet { tableView.reloadData() }
@@ -56,14 +56,14 @@ final class ListViewController: UITableViewController, Alertable {
             } else {
                 self?.refreshControl?.endRefreshing()
             }
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
     
     private func bindItems() {
         viewModel.$points.sink { [weak self] points in
             guard let self = self else { return }
             self.points = points
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
     
     private func bindError() {
@@ -72,7 +72,7 @@ final class ListViewController: UITableViewController, Alertable {
             if let error = error {
                 self.showAlert(message: error)
             }
-        }.store(in: &cancellables)
+        }.store(in: &cancelable)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
