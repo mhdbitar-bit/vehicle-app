@@ -39,8 +39,8 @@ final class MapViewControllerTests: XCTestCase {
         let loader = LoaderSpy()
         let viewModel = MapViewModel(loader: MainQueueDispatchDecorator(decoratee: loader), url: anyURL())
         let sut = MapViewController(viewModel: viewModel)
-        trackForMemoryLeacks(loader, file: file, line: line)
-        trackForMemoryLeacks(sut, file: file, line: line)
+        trackForMemoryLecks(loader, file: file, line: line)
+        trackForMemoryLecks(sut, file: file, line: line)
         return (sut, loader)
     }
 }

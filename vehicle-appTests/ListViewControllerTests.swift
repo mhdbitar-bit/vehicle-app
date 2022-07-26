@@ -86,8 +86,8 @@ final class ListViewControllerTests: XCTestCase {
         let loader = LoaderSpy()
         let viewModel = ListViewModel(loader: MainQueueDispatchDecorator(decoratee: loader), url: anyURL())
         let sut = ListViewController(viewModel: viewModel)
-        trackForMemoryLeacks(loader, file: file, line: line)
-        trackForMemoryLeacks(sut, file: file, line: line)
+        trackForMemoryLecks(loader, file: file, line: line)
+        trackForMemoryLecks(sut, file: file, line: line)
         return (sut, loader)
     }
     

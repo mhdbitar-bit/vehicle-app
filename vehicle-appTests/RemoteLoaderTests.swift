@@ -84,8 +84,8 @@ final class RemoteLoaderTests: XCTestCase {
     private func makeSUT(url: URL = anyURL(), file: StaticString = #filePath, line: UInt = #line) -> (sut: RemoteLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteLoader(client: client)
-        trackForMemoryLeacks(client, file: file, line: line)
-        trackForMemoryLeacks(sut, file: file, line: line)
+        trackForMemoryLecks(client, file: file, line: line)
+        trackForMemoryLecks(sut, file: file, line: line)
         return (sut, client)
     }
     
