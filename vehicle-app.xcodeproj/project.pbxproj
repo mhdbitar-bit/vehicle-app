@@ -220,7 +220,6 @@
 				4CDF61E9287F377600669979 /* Infrastructure */,
 				4CDF61E5287F369D00669979 /* HTTPClient.swift */,
 				4CDF61EC287FEAEA00669979 /* RemoteLoader.swift */,
-				4CDF620A28800ADB00669979 /* VehicleLoader.swift */,
 				4CDF61EE287FEB2800669979 /* PointMapper.swift */,
 				4CDF62102880175300669979 /* VehicleEndpoint.swift */,
 			);
@@ -238,6 +237,7 @@
 		4CDF61F2287FED3900669979 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				4CDF620A28800ADB00669979 /* VehicleLoader.swift */,
 				4CDF61DB287F25DB00669979 /* Point.swift */,
 				4CDF61F3287FED6700669979 /* Coordinate.swift */,
 			);
